@@ -25,29 +25,27 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        // Fab Flight
-        Flight fabFlight = new Flight("Miami", 2, "Tomorrow", "12:10");
-        flightRepository.save(fabFlight);
-
-        Passenger zsolt = new Passenger("Zsolt", "zsolt@zsolt.com");
-        zsolt.addFlight(fabFlight);
-        passengerRepository.save(zsolt);
-
-        Passenger paneer = new Passenger("Paneer", "paneer@paneer.com");
-        paneer.addFlight(fabFlight);
-        passengerRepository.save(paneer);
-
-        Flight speedyFlight = new Flight("Bali", 5, "05/04/24", "13:10");
-        flightRepository.save(speedyFlight);
-
-        Passenger anna = new Passenger("Anna", "anna@anna.com");
-        anna.addFlight(speedyFlight);
-        passengerRepository.save(anna);
-
-        Passenger colin = new Passenger("Colin", "colin@colin.com");
-        colin.addFlight(speedyFlight);
+        Passenger colin = new Passenger("Colin", "Colin@Colin.com");
         passengerRepository.save(colin);
 
+        Passenger zsolt = new Passenger("Zsolt", "Zsolt@Zsolt.com");
+        passengerRepository.save(zsolt);
+
+        Passenger anna = new Passenger("Anna", "Anna@Anna.com");
+        passengerRepository.save(zsolt);
+
+        Passenger paneer = new Passenger("Paneer", "Paneer@doggyemails.com");
+        passengerRepository.save(paneer);
+
+        Flight fabFlight = new Flight("Miami", 2, "Tomorrow", "12:10");
+        fabFlight.addPassenger(zsolt);
+        fabFlight.addPassenger(paneer);
+        flightRepository.save(fabFlight);
+
+        Flight speedyFlight = new Flight("Bali", 5, "05/04/24", "13:10");
+        speedyFlight.addPassenger(colin);
+        speedyFlight.addPassenger(anna);
+        flightRepository.save(fabFlight);
 
     }
 }
