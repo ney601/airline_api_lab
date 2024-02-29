@@ -23,7 +23,7 @@ public class Flight {
 
     @Column
     private String departureDate;
-    
+
     @Column
     private String departureTime;
 
