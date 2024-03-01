@@ -4,6 +4,7 @@ import com.example.airline_api.models.Flight;
 import com.example.airline_api.models.NewFlightDTO;
 import com.example.airline_api.models.Passenger;
 import com.example.airline_api.services.FlightService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,7 @@ public class FlightController {
     }
 
     // Book passenger on a flight
+    @Transactional
     @PatchMapping(value = "/{id}")
     public ResponseEntity<Flight> addPassengerToFlight(@RequestBody NewFlightDTO newFlightDTO, @PathVariable Long id){
         return new ResponseEntity<>(flightService.addPassengerToFlight(newFlightDTO, id), HttpStatus.OK);
