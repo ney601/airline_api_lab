@@ -21,7 +21,10 @@ public class FlightController {
 
     // Display all available flights
     @GetMapping
-    public ResponseEntity<List<Flight>> getAllFlights(){
+    public ResponseEntity<List<Flight>> getAllFlights(@RequestParam(required = false) String destination){
+        if (destination != null){
+            return new ResponseEntity<>(flightService.findAllFlightsByDestination(destination), HttpStatus.OK);
+        }
         return new ResponseEntity<>(flightService.getAllFlights(), HttpStatus.OK);
     }
 

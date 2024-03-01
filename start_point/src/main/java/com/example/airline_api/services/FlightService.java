@@ -50,4 +50,8 @@ public class FlightService {
     public void cancelFlight(Long id) {
         flightRepository.deleteById(id);
     }
+
+    public List<Flight> findAllFlightsByDestination(String destination) {
+        return flightRepository.findByDestination(destination);
+    }
 }
