@@ -45,7 +45,7 @@ public class DataLoader implements ApplicationRunner {
         Flight speedyFlight = new Flight("Bali", 5, "05/04/24", "13:10");
         speedyFlight.addPassenger(colin);
         speedyFlight.addPassenger(anna);
-        flightRepository.save(fabFlight);
+        flightRepository.save(speedyFlight);
 
     }
 }
