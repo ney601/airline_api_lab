@@ -18,6 +18,11 @@ public class PassengerService {
         return passengerRepository.findAll();
     }
 
-    public Passenger savePassenger(NewPassengerDTO newPassengerDTO) {
+    public Passenger addNewPassenger(Passenger passenger) {
+        return passengerRepository.save(passenger);
+    }
+
+    public Passenger getPassengerById(Long id) {
+        return passengerRepository.findById(id).get();
     }
 }
